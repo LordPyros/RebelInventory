@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using RebelInventory.Data;
 using RebelInventory.Models;
 using RebelInventory.Services;
+using InventoryData;
+using InventoryServices;
 
 namespace RebelInventory
 {
@@ -33,10 +31,35 @@ namespace RebelInventory
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
+            {
+                microsoftOptions.ClientId = Configuration["Authentication:Microsoft:ApplicationId"];
+                microsoftOptions.ClientSecret = Configuration["Authentication:Microsoft:Password"];
+            });
+
+            services.AddAuthentication().AddGoogle(googleOptions =>
+            {
+                googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
+                googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+            });
+
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+            });
+
+            services.AddDbContext<InventoryContext>(options => 
+                options.UseSqlServer(Configuration.GetConnectionString("RebelInventoryConnection")));
+
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
+            services.AddSingleton(Configuration);
+            services.AddScoped<IMilitaryAsset, MilitaryAssetService>();
+            services.AddScoped<IInventoryList, InventoryListService>();
+            services.AddScoped<IStorageLocations, StorageLocationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

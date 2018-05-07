@@ -1,0 +1,65 @@
+﻿@model RebelInventory.Models.StorageLocations.StorageLocationDetailModel
+
+<div class="container">
+    <div class="page-header clearfix detailHeading">
+        <h2>View Storage Location</h2>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <img class="detailImage" src="@Model.ImageUrl" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <p>@Model.LocationName</p>
+            <p>@Model.LocationDescription</p>
+
+
+        </div>
+        <div class="col-md-4 detailInfo">
+            <table>
+                <tr>
+                    <td class="itemLabel">Amount: </td>
+                    <td class="itemValue">@Model.TotalAmountOfEquipment</td>
+                </tr>
+                <tr>
+                    <td class="itemLabel">Amount Under Repair: </td>
+                    <td class="itemValue">@Model.TotalAmountUnderRepair</td>
+                </tr>
+                <tr>
+                    <td class="itemLabel">Amount Available: </td>
+                    <td class="itemValue">@Model.TotalAmountAvailable</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div>
+    <table class="equipmentIndexTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Total Amount</th>
+                <th>Amount Under Repair</th>
+                <th>Amount Available</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var inventoryItem in Model.ListingDetails)
+            {
+            <tr>
+                <td>@inventoryItem.Name</td>
+                <td>@inventoryItem.Type</td>
+                <td align="center">@inventoryItem.Amount</td>
+                <td align="center">@inventoryItem.AmountUnderRepair</td>
+                <td align="center">@inventoryItem.AmountAvailable</td>
+            </tr>
+
+            }
+        </tbody>
+    </table>
+</div>

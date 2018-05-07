@@ -1,0 +1,34 @@
+﻿@model RebelInventory.Models.Inventory.InventoryIndexModel
+@{ 
+    ViewBag.Title = "Inventory List";
+}
+
+<h3>@ViewBag.Title</h3>
+<div>
+    <table class="equipmentIndexTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Location</th>
+                <th>Total Amount</th>
+                <th>Amount Under Repair</th>
+                <th>Amount Available</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var inventoryItem in Model.InventoryItems)
+            {
+            <tr>
+                <td>@inventoryItem.Name</td>
+                <td>@inventoryItem.Type</td>
+                <td>@inventoryItem.Location</td>
+                <td align="center">@inventoryItem.Amount</td>
+                <td align="center">@inventoryItem.AmountUnderRepair</td>
+                <td align="center">@inventoryItem.AmountAvailable</td>
+            </tr>
+
+            }
+        </tbody>
+    </table>
+</div>

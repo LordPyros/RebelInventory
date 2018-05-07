@@ -1,24 +1,8 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
-
-/* Wrapping element */
+﻿/* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
-
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
 }
 
 /* QR code generator */
@@ -33,3 +17,196 @@
         display: none;
     }
 }
+
+.logo {
+    font-family: "Coda";
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+    .logo > a {
+        color: #ddd;
+        text-decoration: none;
+        transition-duration: 0.5s;
+    }
+
+        .logo > a:hover {
+            color: #fff;
+            transition: ease;
+            text-decoration: none;
+            transition-duration: 0.5s;
+        }
+
+.page-content {
+    padding: 20px;
+    margin: 10px auto;
+}
+
+.page-heading {
+    color: #e9e8e7;
+}
+
+.splash {
+    background-image: url("/images/catalog.png");
+    background-repeat: no-repeat;
+    min-height: 200px;
+}
+
+.card-icon {
+    color: #777;
+    font-size: 40px;
+    padding: 24px;
+    -webkit-border-radius: 1100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    vertical-align: middle;
+    width: 60px;
+    height: 60px;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+}
+
+.icon-wrapper {
+    display: table-cell;
+}
+
+.demo-card-square.mdl-card {
+    width: 320px;
+    height: 320px;
+}
+
+.demo-card-square > .mdl-card__title {
+    color: #fff;
+}
+
+.homeLabel {
+    background-color: rgba(0,0,0,0.3);
+    padding: 4px;
+}
+
+#inventory {
+    background: url('/images/Equipment/starships/awing.jpg') bottom right 15% no-repeat #555;
+    background-position: center center;
+    background-size: cover;
+}
+
+.equipmentIndexTable {
+    font-size: 1.3em;
+    margin: 0 auto;
+}
+
+.equipmentIndexTable td {
+    vertical-align: middle;
+    padding: 0 10px 0 10px;
+}
+
+.equipmentIndexTable th {
+    padding: 0 10px 0 10px;
+}
+
+
+.equipmentIndexTable tr:hover {
+    background-color: #eee;
+}
+
+#locations {
+    background: url('/images/Locations/Dantooine.jpg') bottom left 15% no-repeat #555;
+    background-position: center center;
+    background-size: cover;
+}
+
+
+#equipment {
+    background: url('/images/Equipment/starships/Nebulon-B.jpg') bottom right 15% no-repeat #555;
+    background-position: center center;
+    background-size: cover;
+}
+
+
+
+body {
+    background-color: black;
+}
+
+.customTable td {
+    text-align: left;
+    font-size: 1.2em;
+}
+
+.strongTd {
+    font-weight: bold;
+}
+
+.customTable th {
+    text-align: left;
+    color: black;
+    font-size: 1.3em;
+}
+
+.imageCell {
+    width: 128px;
+    padding: 10px;
+}
+
+#itemLocation {
+    font-weight: bold;
+}
+
+#itemName {
+    font-size: 2.3em;
+}
+
+#itemDescription {
+    font-size: 1.6em;
+}
+
+#itemType {
+    font-size: 1.6em;
+}
+
+.itemLabel {
+    font-weight: bold;
+    padding-left: 8vw;
+}
+
+
+.itemValue {
+    text-align: right;
+    font-size: 0.8em;
+    padding-left: 15px;
+}
+
+.detailImage {
+    width: 340px;
+    padding-bottom: 6px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.detailInfo {
+    padding: 10px;
+    font-size: 1.3em;
+    color: #555;
+}
+
+.detailHeading {
+    padding: 10px;
+}
+
+td, th, h3, h2, p {
+    color: red;
+}
+
+.jumbotron {
+    background-color: black;
+}
+
+.mdl-grid {
+    padding-top: 8vw;
+}
+
+

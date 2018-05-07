@@ -1,0 +1,41 @@
+﻿@model RebelInventory.Models.Equipment.EquipmentDetailModel
+
+<div class="container">
+    <div class="page-header clearfix detailHeading">
+        <h2>View Military Asset</h2>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <img class="detailImage" src="@Model.ImageUrl" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <p id="itemName">@Model.Name</p>
+            <p id="itemType">Equipment Type: @Model.Type</p>
+            <p id="itemDescription">@Model.Description</p>
+            <p id="itemLocation">Current Location: @Model.StorageLocation</p>
+
+
+        </div>
+        <div class="col-md-4 detailInfo">
+            <table>
+                <tr>
+                    <td class="itemLabel">Amount: </td>
+                    <td class="itemValue">@Model.Amount</td>
+                </tr>
+                <tr>
+                    <td class="itemLabel">Amount Under Repair: </td>
+                    <td class="itemValue">@Model.AmountUnderRepair</td>
+                </tr>
+                <tr>
+                    <td class="itemLabel">Amount Available: </td>
+                    <td class="itemValue">@Model.AmountAvailable</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

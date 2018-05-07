@@ -1,0 +1,27 @@
+﻿@using RebelInventory.Models.StorageLocations
+@model RebelInventory.Models.StorageLocations.StorageLocationIndexModel
+@{
+    ViewBag.Title = "Storage Locations";
+}
+<h3>Storage Locations</h3>
+<div>
+    <table class="equipmentIndexTable">
+        <thead>
+            <tr>
+                <th>Storage Location Name</th>
+                <th>Total Amount Of Equipment Items</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var location in Model.Locations)
+            {
+                <tr>
+                    <td class="strongTd">
+                        <a asp-controller="Location" asp-action="Detail" asp-route-id="@location.Id">@location.LocationName</a>
+                    </td>
+                    <td align="center">@location.TotalAmountOfEquipment</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
