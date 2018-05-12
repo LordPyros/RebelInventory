@@ -60,6 +60,7 @@ namespace RebelInventory
             services.AddScoped<IMilitaryAsset, MilitaryAssetService>();
             services.AddScoped<IInventoryList, InventoryListService>();
             services.AddScoped<IStorageLocations, StorageLocationService>();
+            services.AddScoped<IChangeValues, ChangeValuesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

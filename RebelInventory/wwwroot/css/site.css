@@ -197,7 +197,7 @@ body {
     padding: 10px;
 }
 
-td, th, h3, h2, p {
+td, th, h4, h3, h2, p, label {
     color: red;
 }
 
@@ -209,4 +209,40 @@ td, th, h3, h2, p {
     padding-top: 8vw;
 }
 
+.hiddenDetail {
+    display: none;
+}
 
+#NavBar {    
+    background-color: darkred;
+}
+
+#BlackText a {
+    color: black;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+#LogOut {
+    color: black;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+#username {
+    vertical-align: middle;
+}
+
+.detailButtonForms {
+    padding-top: 10px;
+}
+
+    .detailButtonForms input {
+        font-size: 1.4em;
+        
+    }
+
+    .detailButtonForms label {
+        padding-right: 10px;
+        font-size: 1.4em;
+    }

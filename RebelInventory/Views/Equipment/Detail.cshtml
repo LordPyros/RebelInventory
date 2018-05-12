@@ -18,8 +18,6 @@
             <p id="itemType">Equipment Type: @Model.Type</p>
             <p id="itemDescription">@Model.Description</p>
             <p id="itemLocation">Current Location: @Model.StorageLocation</p>
-
-
         </div>
         <div class="col-md-4 detailInfo">
             <table>
@@ -39,3 +37,48 @@
         </div>
     </div>
 </div>
+
+<div class="text-center">
+    <div class="btn-group" role="group" aria-label="Button group">
+        <button class="btn btn-secondary btn-danger btn-lg" type="button" onclick="showHideInputs('addAmount')">Add Amount</button>
+        <button class="btn btn-secondary btn-danger btn-lg" type="button" onclick="showHideInputs('removeAmount')">Remove Amount</button>
+        <button class="btn btn-secondary btn-danger btn-lg" type="button" onclick="showHideInputs('sendToRepair')">Send To Repair</button>
+        <button class="btn btn-secondary btn-danger btn-lg" type="button" onclick="showHideInputs('returnFromRepair')">Return From Repair</button>
+    </div>
+    <br/>
+
+    <form asp-action="AddAmount" asp-route-id="@Model.EquipmentId" class="detailButtonForms" method="post">
+        <label class="addAmount hiddenDetail" style="font-size: 1.4em">Enter An Amount To Add</label>
+        <input type="number" style="font-size: 1.4em" name="addAmountTB" class="addAmount hiddenDetail" min="0"/>
+        <input type="Submit" value="Submit " class="addAmount hiddenDetail btn-danger btn-lg" />
+    </form>
+    <form asp-action="RemoveAmount" asp-route-id="@Model.EquipmentId" class="detailButtonForms" method="post">
+        <label class="removeAmount hiddenDetail">Enter An Amount To Remove</label>
+        <input type="number" name="removeAmountTb" class="removeAmount hiddenDetail" min="0"/>
+        <input type="Submit" value="Submit" class="removeAmount hiddenDetail btn-danger btn-lg" />
+    </form>
+    <form asp-action="SendToRepair" asp-route-id="@Model.EquipmentId" class="detailButtonForms" method="post">
+        <label class="sendToRepair hiddenDetail">Enter An Amount To Send To Repair</label>
+        <input type="number" name="sendToRepairTB" class="sendToRepair hiddenDetail" min="0"/>
+        <input type="submit" value="Submit" class="sendToRepair hiddenDetail btn-danger btn-lg" />
+    </form>
+    <form asp-action="ReturnFromRepair" asp-route-id="@Model.EquipmentId" class="detailButtonForms" method="post">
+        <label class="returnFromRepair hiddenDetail">Enter An Amount To Return From Repair</label>
+        <input type="number" name="returnFromRepairTB" class="returnFromRepair hiddenDetail" min="0"/>
+        <input type="submit" value="Submit" class="returnFromRepair hiddenDetail btn-danger btn-lg" />
+    </form>
+</div>
+<!--  -->
+<script type="text/javascript">
+    function showHideInputs(str) {
+        var hiddenInputs = document.getElementsByClassName(str);
+
+        for (var i = 0; 1 != hiddenInputs.length; i++) {
+            if (hiddenInputs[i].style.display == "inline")
+                hiddenInputs[i].style.display = "none";
+            else {
+                hiddenInputs[i].style.display = "inline";
+            }
+        }
+    }
+</script>
