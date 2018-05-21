@@ -1,0 +1,68 @@
+INSERT INTO
+StorageLocations(ImageUrl, Name, Description)
+VALUES
+('/images/Locations/Dantooine.jpg', 'Dantooine', 'Dantooine is a pleasant world of grasslands, rivers and lakes. The planet is located in the Raioballo sector of the Outer Rim. It hosts a small population spread amongst single-family settlements and small communities with large land holdings. Its sentient population consisted primarily of simple Human farmers, though Dantooine was also home to the primitive Dantari race.  The planet has no industrial settlements or advanced technology, save for our Rebel base there. '),
+('/images/Locations/Hoth.png', 'Hoth', 'Hoth is a remote, icy planet that is the sixth planet in the star system of the same name. It hosts Echo Base, the temporary headquarters of the Alliance to Restore the Republic, until the Galactic Empire located the Rebels, initiating a major confrontation known as the Battle of Hoth.'),
+('/images/Locations/Yavin-4.Png', 'Yavin 4', 'Yavin 4 is the jungle-covered fourth moon in orbit around the red gas giant Yavin. Prior to and during the Galactic Civil War, it hosted the headquarters of the Alliance to Restore the Republic, a group of resistance fighters that opposed the dominant Galactic Empire. Following a major battle that took place around Yavin, the Alliance relocated its headquarters to Hoth');
+SELECT * FROM StorageLocations
+
+INSERT INTO
+MilitaryAssets(Discriminator, LocationId, RepairingId, Amount, HasShields, NoOfConcussionMissileLaunchers, NoOfIonCannons, NoOfLasersCannons, NoOfProtonTorpedoLaunchers, Vehicle_HasShields, MaxPassengers, Vehicle_NoOfLasersCannons, IsOneHanded, IsTwoHanded, IsTripodMounted, Name, ImageUrl, Description)
+VALUES
+('Starship', 1, 1, 60, 1, 2, 0, 2, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'A-Wing', '/images/Equipment/Starships/awing.jpg', 'With its sleek arrowhead shape, streamlined cockpit, and massive twin engines, the A-wing starfighter suggests raw speed even when parked within Alliance hangar bays. Faster than even the TIE interceptor, the A-wing is well suited for lightning strikes. It sports a pair of pivoting laser cannons on each wingtip'),
+('Starship', 3, 2, 36, 1, 0, 2, 4, 2, NULL, NULL, NULL, NULL, NULL, NULL, 'B-Wing', '/images/Equipment/Starships/bwing.png', 'Perhaps the oddest-looking starfighter in the Rebel Alliance fleet, the B-wing fighter is as powerful as it is ungainly. The ship''s structure is almost entirely taken up by its primary airfoil, which houses a cylindrical cockpit on one end, an engine cluster in the center, and a heavy weapons pod at its base. Located just below the engine cluster are a pair of S-foils which can deploy to extend the firing arc of twin laser cannons.'),
+('Starship', 1, 3, 84, 1, 0, 0, 4, 2, NULL, NULL, NULL, NULL, NULL, NULL, 'X-Wing', '/images/Equipment/Starships/xwing.png', 'The X-wing is a versatile Rebel Alliance starfighter that balances speed with firepower. Armed with four laser cannons and two proton torpedo launchers, the X-wing can take on anything the Empire throws at it.'),
+('Starship', 3, 4, 72, 1, 0, 2, 2, 2, NULL, NULL, NULL, NULL, NULL, NULL, 'Y-Wing', '/images/Equipment/Starships/ywing.jpeg', 'The Y-wing is a workhorse starfighter has been in use since the Clone Wars. Used for dogfights and for bombing runs against capital ships and ground targets, Y-wings are often overshadowed by newer models such as the X-wing and the A-wing.'),
+('Starship', 2, 5, 15, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'Bulk Freighter', '/images/Equipment/Starships/bulk_freighter.png', 'Bulk freighters are huge spaceships used to haul enormous cargo loads. Most of the ship''s interior is occupied by cargo bays while the bridge and crew areas are often small and cramped. In spite of this, many spacers sign on to bulk freighters because of the profits involved. '),
+('Starship', 2, 6, 26, 1, 0, 0, 4, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'Medium Transport', '/images/Equipment/Starships/Medium_Transport.jpg', 'The GR-75 medium transport, also known as the Gallofree medium transport or Rebel transport, is a clamshell-hulled transport produced by Gallofree Yards, Inc. Many of these transports served the Alliance Fleet during the Galactic Civil War, including playing a pivotal role in the evacuation of the Rebellion''s Echo Base during the Battle of Hoth. '),
+('Starship', 1, 7, 12, 1, 4, 0, 14, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'Corellian Gunship', '/images/Equipment/Starships/Corellian_Gunship.jpg', 'The DP20 frigate or Corellian Gunship are one of the few dedicated warship designs produced by Corellian Engineering Corporation, and are the most common member of the Corellian gunship product line. Though small and compact, it was fast and carried heavy firepower for a ship of its size and class.'),
+('Starship', 3, 8, 15, 1, 0, 0, 6, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'Corellian Corvette',  '/images/Equipment/Starships/corellian_corvette.jpg', 'CR90 corvettes, also known as Alderaan cruisers, Corellian corvettes, or blockade runners, are consular vessels manufactured by the Corellian Engineering Corporation.'),
+('Starship', 2, 9, 8, 1, 0, 0, 24, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'Nebulon-B Frigate', '/images/Equipment/Starships/Nebulon-B.jpg', 'The EF76 Nebulon-B escort frigate also known as Nebulon-B frigate is a capital ship manufactured by Kuat Drive Yards for the Imperial Navy. It is more notoriously used as a Rebel Cruiser by the Alliance to Restore the Republic, and its successor, the New Republic, throughout the Galactic Civil War.'),
+('Starship', 2, 10, 10, 1, 0, 0, 62, 4, NULL, NULL, NULL, NULL, NULL, NULL, 'Repulic Attack Cruiser', '/images/Equipment/Starships/republicattackcruiser.jpeg', 'The Venator-class Star Destroyer, also known as a Republic attack cruiser or Jedi Cruiser, is a dagger-shaped capital ship used by the Galactic Republic Navy for ship-to-ship combat, capital ship escort, and fighter carrying against the Confederacy of Independent Systems during the Clone Wars. The attack cruiser faced the Separatist dreadnoughts in some of the most well-known battles of the Clone Wars, including those of Sullust, Christophsis and Coruscant.'),
+('Starship', 3, 11, 5, 1, 0, 20, 48, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'Mon Calamari Cruiser', '/images/Equipment/Starships/Mon_Cal.jpg', 'Mon Calamari Star Cruisers were the main cruisers in the Rebel Alliance/New Republic fleet for a significant portion of the Galactic Civil War. '),
+('Starship', 1, 12, 3, 1, 0, 20, 48, 0, NULL, NULL, NULL, NULL, NULL, NULL, 'Mon Calamari Cruiser Type 2', '/images/Equipment/Starships/Mon Calamari Cruiser 2.jpg', 'The MC80B Star Cruiser was a Mon Calamari warship produced for the fledgling New Republic fleet. The Mon Remonda was the first MC80B Star Cruiser.'), 
+('Vehicle', 1, 13, 30, NULL, NULL, NULL, NULL, NULL, 0, 10, 5, NULL, NULL, NULL, 'Attack Tank', '/images/Equipment/Vehicles/attack tank.png','Tanks were ground assault vehicles that were capable of extreme mobility thanks to their tracks, or a repulsorlift. Used by armies as part of armored cavalry units, they were designed for front-line combat as well as intimidation. They typically boasted large laser cannons mounted on turrets or other powerful anti-vehicle weaponry, and were heavily armored to protect the troops operating the weapons and the propulsion systems inside'),
+('Vehicle', 1, 14, 20, NULL, NULL, NULL, NULL, NULL, 0, 3, 2, NULL, NULL, NULL, 'Heavy Attack Tank', '/images/Equipment/Vehicles/heavy attack tank.jpg', 'The T3-B heavy attack tank is a heavier complement to its predecessor, the T1-B. The T3-B is used by the Rebel Alliance during the early stages of the Galactic Civil War. '),
+('Vehicle', 3, 15, 25, NULL, NULL, NULL, NULL, NULL, 0, 3, 4, NULL, NULL, NULL, 'Hover Tank', '/images/Equipment/Vehicles/Hover_Tank.jpg', 'The T2-B Repulsor Tank was a vehicle used by the Rebel Alliance early in the Galactic Civil War. Delivered to the Rebellion by treasonous military contractors, its armor and repulsorlifts made up for a lack of heavy weapons'),
+('Vehicle', 2, 16, 24, NULL, NULL, NULL, NULL, NULL, 0, 2, 2, NULL, NULL, NULL, 'Snow Speeder', '/images/Equipment/Vehicles/Snowspeeder.jpg', 'When stationed on Hoth, the Rebel Alliance modified T-47 airspeeders to become snowspeeders, fast flying conveyances for patrol and defense of their hidden base.'),
+('Vehicle', 1, 17, 80, NULL, NULL, NULL, NULL, NULL, 0, 2, 2, NULL, NULL, NULL, 'Speeder Bike', '/images/Equipment/Vehicles/Speeder_Bike.png', 'Speeder bikes are common sights throughout the galaxy, with manufacturers turning out both civilian and military models.'),
+('Vehicle', 3, 18, 35, NULL, NULL, NULL, NULL, NULL, 0, 0, 5, NULL, NULL, NULL, 'Land Speeder', '/images/Equipment/Vehicles/landspeeder.jpg', 'A landspeeder is a ground transportation vehicle capable of hovering slightly that enables transit at relatively high speeds.'),
+('Weapon', 1, 19, 450, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, 0, 'DH-17 Blaster Pistol', '/images/Equipment/Weapons/DH-17_Blaster_pistol.png', 'The DH-17 blaster pistol is a close-combat blaster pistol produced by BlasTech Industries'),
+('Weapon', 3, 20, 320, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, 0, 'DL-18 Blaster Pistol', '/images/Equipment/Weapons/DL-18_Blaster pistol.png', 'The DL-18 blaster pistol was a model of blaster pistol commonly used throughout the galaxy, particularly by bounty hunters and smugglers. The blaster, manufactured by BlasTech Industries, was inexpensive and allowed for easy customization. Former Jedi Padawan and Order 66 survivor Kanan Jarrus used a DL-18 after the fall of the Jedi Order.'),
+('Weapon', 2, 21, 600, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 0, 'A280 Blaster Rifle', '/images/Equipment/Weapons/Blaster Rifle.png', 'Blaster rifles were weapons more powerful and larger than other types of blasters, such as blaster pistols. It was used in various factions. Stormtroopers of the Imperial Army were armed with E-11 blaster rifles. The Alliance used many different types of blasters, as they could not afford to mass produce weapons. However, the A280 was the standard issue riffle throughout the years of the Alliance.'),
+('Weapon', 3, 22, 80, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 1, 'Heavy Repeater', '/images/Equipment/Weapons/Heavy repeater.jpg', 'A heavy repeater cannon was a large blaster used by freelance assassin and rebel, Baze Malbus, during the theft of the Death Star plans. It was good at both sniping and close-quarters combat. '),
+('Weapon', 1, 23, 120, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 0, 'Bowcaster', '/images/Equipment/Weapons/Bowcaster.png', 'A bowcaster, also known as a laser crossbow, was a type of traditional, handcrafted projectile weapon commonly used by Wookiees.');
+SELECT * FROM MilitaryAssets
+
+INSERT INTO
+Repairs(AmountUnderRepair)
+Values
+(24),
+(12),
+(36),
+(24),
+(3),
+(6),
+(2),
+(2),
+(1),
+(2),
+(1),
+(0),
+(5),
+(5),
+(4),
+(6),
+(20),
+(3),
+(20),
+(30),
+(50),
+(10),
+(12);
+SELECT * FROM Repairs
+
+
+
+
+
