@@ -17,6 +17,8 @@ namespace InventoryData
 
         string GetType(int equipmentId);
 
+        List<string> GetStorageLocationNames();
+
         MilitaryAsset GetById(int equipmentId);
         
         Repair GetAmountUnderRepair(int equipmentId);

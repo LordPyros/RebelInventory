@@ -246,3 +246,8 @@ td, th, h4, h3, h2, p, label {
         padding-right: 10px;
         font-size: 1.4em;
     }
+
+.relocateDropdown {
+    font-size: 1.4em;
+}
+

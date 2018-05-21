@@ -34,6 +34,71 @@
                     <td class="itemValue">@Model.AmountAvailable</td>
                 </tr>
             </table>
+            <br />
+            <br />
+            <br />
+            @if (Model.Type == "Starship")
+            {
+                <table>
+                    <tr>
+                        <td class="itemLabel">Has Shields: </td>
+                        <td class="itemValue">@Model.HasShields</td>
+                    </tr>
+                    <tr>
+                        <td class="itemLabel">Number Of Laser Cannons: </td>
+                        <td class="itemValue">@Model.NoOfLaserCannons</td>
+                    </tr>
+                    <tr>
+                        <td class="itemLabel">Number Of Ion Cannons: </td>
+                        <td class="itemValue">@Model.NoOfIonCannons</td>
+                    </tr>
+                    <tr>
+                        <td class="itemLabel">Number Of Proton Torpedo Launchers: </td>
+                        <td class="itemValue">@Model.NoOfProtonLaunchers</td>
+                    </tr>
+                    <tr>
+                        <td class="itemLabel">Number Of Concussion Missile Launchers: </td>
+                        <td class="itemValue">@Model.NoOfConcussionLaunchers</td>
+                    </tr>
+                </table>
+
+            }
+            else if (Model.Type == "Vehicle")
+            {
+                <table>
+                    <tr>
+                        <td class="itemLabel">Has Shields: </td>
+                        <td class="itemValue">@Model.VehicleHasShields</td>
+                    </tr>
+                    <tr>
+                        <td class="itemLabel">Number Of Laser Cannons: </td>
+                        <td class="itemValue">@Model.VehicleNoOfLasersCannons</td>
+                    </tr>
+                    <tr>
+                        <td class="itemLabel">Max Passengers: </td>
+                        <td class="itemValue">@Model.MaxPassengers</td>
+                    </tr>
+                </table>
+
+            }
+            else
+            {
+                <table>
+                    <tr>
+                        <td class="itemLabel">One Handed: </td>
+                        <td class="itemValue">@Model.IsOneHanded</td>
+                    </tr>
+                    <tr>
+                        <td class="itemLabel">Two Handed: </td>
+                        <td class="itemValue">@Model.IsTwoHanded</td>
+                    </tr>
+                    <tr>
+                        <td class="itemLabel">Tripod Mounted: </td>
+                        <td class="itemValue">@Model.IsTripodMounted</td>
+                    </tr>
+                </table>
+
+            }
         </div>
     </div>
 </div>
@@ -44,28 +109,39 @@
         <button class="btn btn-secondary btn-danger btn-lg" type="button" onclick="showHideInputs('removeAmount')">Remove Amount</button>
         <button class="btn btn-secondary btn-danger btn-lg" type="button" onclick="showHideInputs('sendToRepair')">Send To Repair</button>
         <button class="btn btn-secondary btn-danger btn-lg" type="button" onclick="showHideInputs('returnFromRepair')">Return From Repair</button>
+        <button class="btn btn-secondary btn-danger btn-lg" type="button" onclick="showHideInputs('relocateEquipment')">Relocate Equipment</button>
     </div>
-    <br/>
+    <br />
 
     <form asp-action="AddAmount" asp-route-id="@Model.EquipmentId" class="detailButtonForms" method="post">
-        <label class="addAmount hiddenDetail" style="font-size: 1.4em">Enter An Amount To Add</label>
-        <input type="number" style="font-size: 1.4em" name="addAmountTB" class="addAmount hiddenDetail" min="0"/>
+        <label class="addAmount hiddenDetail">Enter An Amount To Add</label>
+        <input type="number" style="font-size: 1.4em" name="addAmountTB" class="addAmount hiddenDetail" min="0" />
         <input type="Submit" value="Submit " class="addAmount hiddenDetail btn-danger btn-lg" />
     </form>
     <form asp-action="RemoveAmount" asp-route-id="@Model.EquipmentId" class="detailButtonForms" method="post">
         <label class="removeAmount hiddenDetail">Enter An Amount To Remove</label>
-        <input type="number" name="removeAmountTb" class="removeAmount hiddenDetail" min="0"/>
+        <input type="number" name="removeAmountTb" class="removeAmount hiddenDetail" min="0" />
         <input type="Submit" value="Submit" class="removeAmount hiddenDetail btn-danger btn-lg" />
     </form>
     <form asp-action="SendToRepair" asp-route-id="@Model.EquipmentId" class="detailButtonForms" method="post">
         <label class="sendToRepair hiddenDetail">Enter An Amount To Send To Repair</label>
-        <input type="number" name="sendToRepairTB" class="sendToRepair hiddenDetail" min="0"/>
+        <input type="number" name="sendToRepairTB" class="sendToRepair hiddenDetail" min="0" />
         <input type="submit" value="Submit" class="sendToRepair hiddenDetail btn-danger btn-lg" />
     </form>
     <form asp-action="ReturnFromRepair" asp-route-id="@Model.EquipmentId" class="detailButtonForms" method="post">
         <label class="returnFromRepair hiddenDetail">Enter An Amount To Return From Repair</label>
-        <input type="number" name="returnFromRepairTB" class="returnFromRepair hiddenDetail" min="0"/>
+        <input type="number" name="returnFromRepairTB" class="returnFromRepair hiddenDetail" min="0" />
         <input type="submit" value="Submit" class="returnFromRepair hiddenDetail btn-danger btn-lg" />
+    </form>
+    <form asp-action="RelocateEquipment" asp-route-id="@Model.EquipmentId" class="detailButtonForms" method="post">
+        <label class="relocateEquipment hiddenDetail">Select A New Location</label>
+        <select name="relocateEquipmentDD" class="relocateEquipment hiddenDetail relocateDropdown">
+            @foreach (string s in Model.LocationNames)
+            {
+                <option>@s</option>
+            }
+        </select>
+        <input type="submit" value="Submit" class="relocateEquipment hiddenDetail btn-danger btn-lg" />
     </form>
 </div>
 <!--  -->

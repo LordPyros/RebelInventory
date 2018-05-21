@@ -66,5 +66,60 @@ namespace InventoryServices
                 return "Weapon";
         }
 
+        public bool GetHasShields(int id)
+        {
+            return _context.Starships.FirstOrDefault(a => a.Id == id).HasShields;
+        }
+
+        public int GetNoOfLaserCannons(int id)
+        {
+            return _context.Starships.FirstOrDefault(a => a.Id == id).NoOfLasersCannons;
+        }
+
+        public int GetNoOfIonCannons(int id)
+        {
+            return _context.Starships.FirstOrDefault(a => a.Id == id).NoOfIonCannons;
+        }
+
+        public int GetNoOfProtonLaunchers(int id)
+        {
+            return _context.Starships.FirstOrDefault(a => a.Id == id).NoOfProtonTorpedoLaunchers;
+        }
+
+        public int GetNoOfConcussionLaunchers(int id)
+        {
+            return _context.Starships.FirstOrDefault(a => a.Id == id).NoOfConcussionMissileLaunchers;
+        }
+
+        public int GetVehicleNoOfLasersCannons(int id)
+        {
+            return _context.Vehicles.FirstOrDefault(a => a.Id == id).NoOfLasersCannons;
+        }
+
+        public bool GetVehicleHasShields(int id)
+        {
+            return _context.Vehicles.FirstOrDefault(a => a.Id == id).HasShields;
+        }
+
+        public int GetMaxPassengers(int id)
+        {
+            return _context.Vehicles.FirstOrDefault(a => a.Id == id).MaxPassengers;
+        }
+
+        public bool GetIsOneHanded(int id)
+        {
+            return _context.Weapons.FirstOrDefault(a => a.Id == id).IsOneHanded;
+        }
+
+        public bool GetIsTwoHanded(int id)
+        {
+            return _context.Weapons.FirstOrDefault(a => a.Id == id).IsTwoHanded;
+        }
+
+        public bool GetIsTripodMounted(int id)
+        {
+            return _context.Weapons.FirstOrDefault(a => a.Id == id).IsTripodMounted;
+        }
+
     }
 }

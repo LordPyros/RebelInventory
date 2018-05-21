@@ -43,6 +43,28 @@ namespace InventoryServices
             return GetById(equipmentId).Repairing;
         }
 
+        public int GetStorageIdByName(string name)
+        {
+            StorageLocation s = _context.StorageLocations.FirstOrDefault(asset => asset.Name == name);
+
+            return s.Id;
+
+        }
+
+        public void RelocateEquipment(int equipmentId, string locationName)
+        {
+            // need to get id associated with string
+            int storageLocationId = GetStorageIdByName(locationName);
+
+            // then need to update locationId field with asset(id)
+            var equipment = GetById(equipmentId);
+
+            equipment.Location = _context.StorageLocations.FirstOrDefault(asset => asset.Id == storageLocationId);
+            _context.Update(equipment);
+            _context.SaveChanges();
+
+        }
+
         public void RemoveAmount(int equipmentId, int amount)
         {
             var equipment = GetById(equipmentId);

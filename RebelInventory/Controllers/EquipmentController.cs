@@ -10,11 +10,14 @@ namespace RebelInventory.Controllers
     {
         private IMilitaryAsset _equipments;
         private IChangeValues _changeValues;
+        private IStorageLocations _storageLocations;
 
-        public EquipmentController(IMilitaryAsset assets, IChangeValues changeValues)
+        public EquipmentController(IMilitaryAsset assets, IChangeValues changeValues, IStorageLocations locations)
         {
             _equipments = assets;
             _changeValues = changeValues;
+            _storageLocations = locations;
+
         }
 
         public IActionResult Index()
@@ -54,12 +57,50 @@ namespace RebelInventory.Controllers
                 AmountAvailable = equipment.Amount - _equipments.GetAmountUnderRepair(id).AmountUnderRepair,
                 ImageUrl = equipment.ImageUrl,
                 Type = _equipments.GetType(id),
-                StorageLocation = _equipments.GetCurrentLocation(id).Name
+                StorageLocation = _equipments.GetCurrentLocation(id).Name,
+                LocationNames = _storageLocations.GetStorageLocationNames()
             };
+
+            if (_equipments.GetType(id) == "Starship")
+            {
+                model.HasShields = _equipments.GetHasShields(id);
+                model.NoOfLaserCannons = _equipments.GetNoOfLaserCannons(id);
+                model.NoOfIonCannons = _equipments.GetNoOfIonCannons(id);
+                model.NoOfProtonLaunchers = _equipments.GetNoOfProtonLaunchers(id);
+                model.NoOfConcussionLaunchers = _equipments.GetNoOfConcussionLaunchers(id);
+            }
+            else if (_equipments.GetType(id) == "Vehicle")
+            {
+                model.VehicleHasShields = _equipments.GetVehicleHasShields(id);
+                model.VehicleNoOfLasersCannons = _equipments.GetVehicleNoOfLasersCannons(id);
+                model.MaxPassengers = _equipments.GetMaxPassengers(id);
+            }
+            else
+            {
+                model.IsOneHanded = _equipments.GetIsOneHanded(id);
+                model.IsTwoHanded = _equipments.GetIsTwoHanded(id);
+                model.IsTripodMounted = _equipments.GetIsTripodMounted(id);
+            }
+
 
             return View(model);
         }
 
+        [HttpPost]
+        public IActionResult RelocateEquipment(int id, string relocateEquipmentDD)
+        {
+            // compare string to location names and get location id
+
+            
+
+            _changeValues.RelocateEquipment(id, relocateEquipmentDD);
+
+
+            // change location id on equipment to new id
+
+
+            return RedirectToAction("Detail", new { id = id });
+        }
         
         [HttpPost]
         public IActionResult AddAmount(int id, int addAmountTB)

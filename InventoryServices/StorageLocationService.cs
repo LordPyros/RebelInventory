@@ -117,5 +117,16 @@ namespace InventoryServices
             return GetById(equipmentId).Repairing;
         }
 
+        public List<string> GetStorageLocationNames()
+        {
+            List<string> names = new List<string>();
+
+            foreach (StorageLocation s in GetAll())
+            {
+                names.Add(s.Name);
+            }
+
+            return names;
+        }
     }
 }

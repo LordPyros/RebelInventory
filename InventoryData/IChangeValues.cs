@@ -11,14 +11,14 @@ namespace InventoryData
         MilitaryAsset GetById(int equipmentId);
         Repair GetRepair(int equipmentId);
 
-
+        int GetStorageIdByName(string name);
 
         void AddAmount(int equipmentId, int amount);
         void RemoveAmount(int equipmentId, int amount);
         void SendToRepair(int equipmentId, int amount);
         void ReturnFromRepair(int equipmentId, int amount);
 
-
+        void RelocateEquipment(int equipmentId, string locationName);
 
     }
 }
